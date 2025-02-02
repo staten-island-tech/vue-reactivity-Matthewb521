@@ -1,7 +1,7 @@
 export const fighters = [
   {
     name: 'Islam Makhachev',
-    nickname: '',
+    nickname: 'The Eagle',
     rank: 1,
     wins: 27,
     losses: 1,
