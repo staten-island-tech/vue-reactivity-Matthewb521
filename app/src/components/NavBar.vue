@@ -6,6 +6,7 @@
           <img class="h-8 w-auto" src="https://pngimg.com/uploads/ufc/ufc_PNG15.png" alt="Logo" />
         </div>
         <div class="flex space-x-4">
+          <mode-button class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" />
           <router-link
             to="/"
             class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
@@ -13,7 +14,7 @@
           >
           <router-link
             to="/about"
-            class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+            class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
             >Favorites</router-link
           >
         </div>
@@ -24,6 +25,7 @@
 
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
+import ModeButton from './ModeButton.vue'
 </script>
 
 <style lang="scss" scoped></style>
