@@ -140,22 +140,9 @@ export const fighters = [
       'https://dmxg5wxfqgb4u.cloudfront.net/styles/athlete_bio_full_body/s3/2025-01/HILL_JAMAHAL_L_01-18.png?itok=31OdpoOU',
   },
   {
-    name: 'Israel Adesanya',
-    nickname: 'The Last Stylebender',
-    rank: 11,
-    wins: 24,
-    losses: 3,
-    division: 'Middleweight',
-    isChampion: false,
-    country: 'Nigeria',
-    description:
-      "Israel 'The Last Stylebender' Adesanya is a former UFC Middleweight champion, acclaimed for his striking finesse and tactical prowess. His reign included multiple title defenses against top contenders.",
-    image: '../Images/Fighter-1.png',
-  },
-  {
     name: 'Alexander Volkanovski',
     nickname: 'The Great',
-    rank: 12,
+    rank: 11,
     wins: 25,
     losses: 2,
     division: 'Featherweight',
@@ -169,7 +156,7 @@ export const fighters = [
   {
     name: 'Max Holloway',
     nickname: 'Blessed',
-    rank: 13,
+    rank: 12,
     wins: 24,
     losses: 7,
     division: 'Featherweight',
@@ -183,7 +170,7 @@ export const fighters = [
   {
     name: 'Kamaru Usman',
     nickname: 'The Nigerian Nightmare',
-    rank: 14,
+    rank: 13,
     wins: 20,
     losses: 3,
     division: 'Welterweight',
@@ -197,7 +184,7 @@ export const fighters = [
   {
     name: 'Charles Oliveira',
     nickname: 'Do Bronx',
-    rank: 15,
+    rank: 14,
     wins: 34,
     losses: 9,
     division: 'Lightweight',
