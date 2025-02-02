@@ -150,7 +150,7 @@ export const fighters = [
     country: 'Nigeria',
     description:
       "Israel 'The Last Stylebender' Adesanya is a former UFC Middleweight champion, acclaimed for his striking finesse and tactical prowess. His reign included multiple title defenses against top contenders.",
-    image: '../Fighter-1.png',
+    image: '../Images/Fighter-1.png',
   },
   {
     name: 'Alexander Volkanovski',
