@@ -11,8 +11,8 @@
 </template>
 
 <script setup>
-import TheFavHeader from '@/components/TheFavHeader.vue'
-import FavoriteFighters from '@/components/FavoriteFighters.vue'
+import TheFavHeader from '@/components/headers/TheFavHeader.vue'
+import FavoriteFighters from '@/components/displays/FavoriteFighters.vue'
 import StatsBox from '@/components/StatsBox.vue'
 </script>
 

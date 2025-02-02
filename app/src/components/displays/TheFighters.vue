@@ -5,8 +5,8 @@
 </template>
 
 <script setup>
-import TheCard from '@/components/TheCard.vue'
-import { fighters } from '@/array.js'
+import TheCard from '@/components/cards/TheCard.vue'
+import { fighters } from '@/arrays/array.js'
 </script>
 
 <style lang="scss" scoped></style>

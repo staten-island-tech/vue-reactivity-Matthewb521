@@ -8,7 +8,7 @@
 
 <script setup>
 import TheVideo from '@/components/TheVideo.vue'
-import VideoHeader from '@/components/VideoHeader.vue'
+import VideoHeader from '@/components/headers/VideoHeader.vue'
 </script>
 
 <style scoped></style>

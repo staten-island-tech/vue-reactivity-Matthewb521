@@ -29,7 +29,7 @@
 </template>
 
 <script setup>
-import { cart } from '@/cart.js'
+import { cart } from '@/arrays/cart.js'
 
 defineProps({
   product: Object,

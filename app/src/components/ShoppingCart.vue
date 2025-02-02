@@ -25,8 +25,8 @@
 </template>
 
 <script setup>
-import { cart } from '@/cart.js'
-import CartCard from './CartCard.vue'
+import { cart } from '@/arrays/cart.js'
+import CartCard from './cards/CartCard.vue'
 import { ref } from 'vue'
 import { computed } from 'vue'
 import { RouterLink, RouterView } from 'vue-router'

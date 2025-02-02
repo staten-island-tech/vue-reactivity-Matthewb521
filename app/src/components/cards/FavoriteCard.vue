@@ -17,9 +17,9 @@
         <form name="sumbit-form" @submit.prevent="submit(fighter)">
           <button
             type="submit"
-            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 hover:scale-110 transition-transform"
+            class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900 hover:scale-110 transition-transform"
           >
-            Add To Favorites
+            Remove From Favorite
             <svg
               class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
               aria-hidden="true"
@@ -37,6 +37,7 @@
             </svg>
           </button>
         </form>
+
         <button
           @click="openModal"
           class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:focus:ring-yellow-900 hover:scale-110 transition-transform"
@@ -52,6 +53,7 @@
     class="fixed top-0 left-0 right-0 z-50 flex items-center justify-center w-full h-screen"
   >
     <div class="relative w-full max-w-md max-h-full bg-white rounded-lg shadow-sm dark:bg-gray-700">
+      <!-- Modal Header -->
       <div
         class="flex items-center justify-between p-4 border-b rounded-t dark:border-gray-600 border-gray-200"
       >
@@ -74,11 +76,15 @@
           <span class="sr-only">Close modal</span>
         </button>
       </div>
+
+      <!-- Modal Body -->
       <div class="p-4 space-y-4">
         <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
           {{ fighter.description }}
         </p>
       </div>
+
+      <!-- Modal Footer -->
       <div class="flex items-center p-4 border-t border-gray-200 rounded-b dark:border-gray-600">
         <button
           @click="closeModal"
@@ -92,7 +98,7 @@
 </template>
 
 <script setup>
-import { favFighters } from '@/favFighters.js'
+import { favFighters } from '@/arrays/favFighters.js'
 import { ref } from 'vue'
 
 defineProps({
@@ -100,13 +106,9 @@ defineProps({
 })
 
 function submit(fighter) {
-  console.log(fighter)
-  const isFighterExists = favFighters.some((f) => f.name === fighter.name)
-
-  if (!isFighterExists) {
-    favFighters.push({ ...fighter })
-  } else {
-    console.log('Can not add fighter to favorites')
+  const index = favFighters.findIndex((f) => f.name === fighter.name)
+  if (index !== -1) {
+    favFighters.splice(index, 1)
   }
 }
 
@@ -121,4 +123,4 @@ const closeModal = () => {
 }
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped></style>

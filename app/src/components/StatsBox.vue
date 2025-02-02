@@ -14,7 +14,7 @@
 <script setup>
 import { ref } from 'vue'
 import { computed } from 'vue'
-import { favFighters } from '@/favFighters.js'
+import { favFighters } from '@/arrays/favFighters.js'
 
 const favFightersRef = ref(favFighters)
 

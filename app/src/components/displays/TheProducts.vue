@@ -5,8 +5,8 @@
 </template>
 
 <script setup>
-import ShopCard from './ShopCard.vue'
-import { products } from '@/products.js'
+import ShopCard from './cards/ShopCard.vue'
+import { products } from '@/arrays/products.js'
 </script>
 
 <style lang="scss" scoped></style>

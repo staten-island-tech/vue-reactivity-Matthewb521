@@ -10,8 +10,8 @@
 </template>
 
 <script setup>
-import TheFighters from '@/components/TheFighters.vue'
-import TheWelcome from '@/components/TheWelcome.vue'
+import TheFighters from '@/components/displays/TheFighters.vue'
+import TheWelcome from '@/components/headers/WelcomeHeader.vue'
 </script>
 
 <style lang="scss" scoped></style>
