@@ -1,4 +1,4 @@
-const fighters = [
+export const fighters = [
   {
     name: 'Islam Makhachev',
     nickname: '',

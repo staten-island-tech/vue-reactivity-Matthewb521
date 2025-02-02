@@ -1,17 +1,17 @@
 <template>
   <div>
-    <TheWelcome/>
+    <TheWelcome />
   </div>
-  <br> 
-  <br/>
+  <br />
+  <br />
   <div>
-    <TheFighters/>
+    <TheFighters />
   </div>
 </template>
 
 <script setup>
 import TheFighters from '@/components/TheFighters.vue'
-import TheWelcome from '@/components/TheWelcome.vue';
+import TheWelcome from '@/components/TheWelcome.vue'
 </script>
 
 <style lang="scss" scoped></style>
