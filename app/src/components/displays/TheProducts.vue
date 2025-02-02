@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-import ShopCard from './cards/ShopCard.vue'
+import ShopCard from '../cards/ShopCard.vue'
 import { products } from '@/arrays/products.js'
 </script>
 

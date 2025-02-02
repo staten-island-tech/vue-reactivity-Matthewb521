@@ -6,7 +6,7 @@
 
 <script setup>
 import { favFighters } from '@/arrays/favFighters.js'
-import FavoriteCard from './cards/FavoriteCard.vue'
+import FavoriteCard from '../cards/FavoriteCard.vue'
 </script>
 
 <style lang="scss" scoped></style>
