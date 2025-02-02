@@ -5,8 +5,9 @@
   <br />
   <br />
   <div class="flex gap-3">
+    <div class="w-[2%]"></div>
     <FavoriteFighters />
-    <StatsBox />
+    <StatsBox class="w-[20%] sticky top-[80px]" />
   </div>
 </template>
 

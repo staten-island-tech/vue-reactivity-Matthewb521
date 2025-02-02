@@ -4,8 +4,12 @@
   </div>
   <br />
   <br />
-  <div>
-    <TheFighters />
+  <div class="flex">
+    <div class="w-[2%]"></div>
+    <div class="w-[96%]">
+      <TheFighters />
+    </div>
+    <div class="w-[2%]"></div>
   </div>
 </template>
 
