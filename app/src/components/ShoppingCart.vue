@@ -9,10 +9,10 @@
     <br />
 
     <h2 class="text-2xl font-semibold text-gray-900 dark:text-white">
-      Total Price:${{ totalPrice }}
+      Total Price: ${{ totalPrice }}
     </h2>
     <h2 class="text-2xl font-semibold text-gray-900 dark:text-white">
-      Total Rating:{{ totalRating }}
+      Average Rating: {{ averageRating }}
     </h2>
     <br />
     <router-link
@@ -34,7 +34,11 @@ import { RouterLink, RouterView } from 'vue-router'
 const cartRef = ref(cart)
 
 const totalPrice = computed(() => cartRef.value.reduce((acc, product) => acc + product.price, 0))
-const totalRating = computed(() => cartRef.value.reduce((acc, product) => acc + product.rating, 0))
+const averageRating = computed(() => {
+  const totalRatings = cartRef.value.reduce((acc, product) => acc + product.rating, 0)
+  const totalProducts = cartRef.value.length
+  return totalProducts > 0 ? (totalRatings / totalProducts).toFixed(2) : 0
+})
 </script>
 
 <style lang="scss" scoped></style>
