@@ -36,6 +36,6 @@
 }
 
 .rainbow-text:hover {
-  animation: rainbow 3s linear infinite;
+  animation: rainbow 5s linear infinite;
 }
 </style>
