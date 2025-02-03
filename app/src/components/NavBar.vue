@@ -22,6 +22,11 @@
             class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
             >Shop</router-link
           >
+          <router-link
+            to="/game"
+            class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
+            >Game</router-link
+          >
         </div>
       </div>
     </div>
