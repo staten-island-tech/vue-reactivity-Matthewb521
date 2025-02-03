@@ -9,7 +9,7 @@
     <br />
 
     <h2 class="text-2xl font-semibold text-gray-900 dark:text-white">
-      Total Price: ${{ totalPrice }}
+      Total Price: ${{ totalPrice.toFixed(2) }}
     </h2>
     <h2 class="text-2xl font-semibold text-gray-900 dark:text-white">
       Average Rating: {{ averageRating }}
@@ -34,6 +34,7 @@ import { RouterLink, RouterView } from 'vue-router'
 const cartRef = ref(cart)
 
 const totalPrice = computed(() => cartRef.value.reduce((acc, product) => acc + product.price, 0))
+
 const averageRating = computed(() => {
   const totalRatings = cartRef.value.reduce((acc, product) => acc + product.rating, 0)
   const totalProducts = cartRef.value.length

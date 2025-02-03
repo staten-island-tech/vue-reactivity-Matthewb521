@@ -6,26 +6,24 @@
           <img class="h-8 w-auto" src="https://pngimg.com/uploads/ufc/ufc_PNG15.png" alt="Logo" />
         </div>
         <div class="flex space-x-4">
-          <mode-button class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" />
-          <router-link
-            to="/"
-            class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
-            >Home</router-link
+          <ModeButton class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" />
+          <RouterLink to="/" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
+            >Home</RouterLink
           >
-          <router-link
+          <RouterLink
             to="/favorite"
             class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
-            >Favorites</router-link
+            >Favorites</RouterLink
           >
-          <router-link
+          <RouterLink
             to="/shop"
             class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
-            >Shop</router-link
+            >Shop</RouterLink
           >
-          <router-link
+          <RouterLink
             to="/game"
             class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
-            >Game</router-link
+            >Game</RouterLink
           >
         </div>
       </div>
