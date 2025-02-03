@@ -107,7 +107,7 @@ export const fighters = [
     isChampion: false,
     country: 'USA',
     description:
-      "Sean 'Sugar' O'Malley is the UFC Bantamweight champion, celebrated for his flashy striking and charismatic persona. He has garnered a substantial following with his entertaining fighting style.",
+      "Sean 'Sugar' O'Malley used to be the UFC Bantamweight champion, celebrated for his flashy striking and charismatic persona. He has garnered a substantial following with his entertaining fighting style.",
     image:
       'https://dmxg5wxfqgb4u.cloudfront.net/styles/athlete_bio_full_body/s3/2025-01/5/OMALLEY_SEAN_L_08-19.png?itok=PZizstP4',
   },
