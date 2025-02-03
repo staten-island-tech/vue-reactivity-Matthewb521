@@ -8,7 +8,7 @@
       <TheProducts />
     </div>
     <div class="w-[10%]"></div>
-    <div class="w-[20%] sticky top-20 max-h-[calc(100vh-5rem)]">
+    <div class="w-[20%] sticky top-20 max-h-[calc(100vh-5rem)] overflow-y-auto">
       <ShoppingCart />
     </div>
   </div>
