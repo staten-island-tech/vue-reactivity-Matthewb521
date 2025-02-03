@@ -1,6 +1,8 @@
 <template>
   <div class="w-full sticky top-0 bg-white z-10">
     <NavBar />
+  </div>
+  <div>
     <WelcomeHeader>{{ currentTitle }}</WelcomeHeader>
   </div>
   <RouterView />
