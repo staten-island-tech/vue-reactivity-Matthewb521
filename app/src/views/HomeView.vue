@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <TheWelcome />
-  </div>
+  <div></div>
   <br />
   <br />
   <div class="flex">
@@ -15,7 +13,6 @@
 
 <script setup>
 import TheFighters from '@/components/displays/TheFighters.vue'
-import TheWelcome from '@/components/headers/WelcomeHeader.vue'
 </script>
 
 <style lang="scss" scoped></style>

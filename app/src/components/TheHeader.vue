@@ -3,8 +3,7 @@
     <h1
       class="rainbow-text text-4xl md:text-6xl font-extrabold text-white text-center uppercase tracking-wide bg-gradient-to-r from-red-600 to-gray-900 py-4"
     >
-      <!-- use a slot in 1 Header component instead of 5 components -->
-      Welcome to the game
+      <slot></slot>
     </h1>
   </div>
 </template>

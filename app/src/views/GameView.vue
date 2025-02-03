@@ -1,11 +1,7 @@
 <template>
-  <div>
-    <GameHeader />
-  </div>
+  <div></div>
 </template>
 
-<script setup>
-import GameHeader from '@/components/headers/GameHeader.vue'
-</script>
+<script setup></script>
 
 <style scoped></style>

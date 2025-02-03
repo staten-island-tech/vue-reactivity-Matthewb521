@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <TheFavHeader />
-  </div>
+  <div></div>
   <br />
   <br />
   <div class="flex gap-3">
@@ -12,7 +10,6 @@
 </template>
 
 <script setup>
-import TheFavHeader from '@/components/headers/TheFavHeader.vue'
 import FavoriteFighters from '@/components/displays/FavoriteFighters.vue'
 import StatsBox from '@/components/StatsBox.vue'
 </script>

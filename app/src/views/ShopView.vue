@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <ShopHeader />
-  </div>
+  <div></div>
   <br />
   <br />
   <div class="flex">
@@ -17,7 +15,6 @@
 </template>
 
 <script setup>
-import ShopHeader from '@/components/headers/ShopHeader.vue'
 import TheProducts from '@/components/displays/TheProducts.vue'
 import ShoppingCart from '@/components/ShoppingCart.vue'
 </script>
