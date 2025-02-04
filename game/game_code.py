@@ -1,7 +1,9 @@
-# Import required libraries
 import pygame
 import random
 import sys
+from flask import Flask, send_file, render_template
+from flask_cors import CORS
+import threading
 
 # Initialize Pygame
 pygame.init()
@@ -31,12 +33,14 @@ score = 0
 clown_velocity = 5
 clown_acceleration = 0.5
 
+# Global variables for movement
+dx = 0
+dy = 0
+
 # Set up clown starting position and movement
 clown_rect = clown_image.get_rect()
 clown_rect.topleft = (random.randint(0, WINDOW_WIDTH - clown_rect.width),
                       random.randint(0, WINDOW_HEIGHT - clown_rect.height))
-dx = random.choice([-1, 1]) * clown_velocity
-dy = random.choice([-1, 1]) * clown_velocity
 
 # Set up clock
 clock = pygame.time.Clock()
@@ -80,61 +84,58 @@ def game_over():
                 waiting = False
 
 # Main game loop
-running = True
-while running:
-    # Event handling
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
-        if event.type == pygame.MOUSEBUTTONDOWN:
-            mouse_x, mouse_y = event.pos
-            if clown_rect.collidepoint(mouse_x, mouse_y):
-                score += 1
-                clown_velocity += clown_acceleration
-                dx = random.choice([-1, 1]) * clown_velocity
-                dy = random.choice([-1, 1]) * clown_velocity
-                clown_rect.topleft = (random.randint(0, WINDOW_WIDTH - clown_rect.width),
-                                      random.randint(0, WINDOW_HEIGHT - clown_rect.height))
-            else:
-                lives -= 1
+def run_game():
+    global dx, dy
+    while True:
+        # Event handling
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                mouse_x, mouse_y = event.pos
+                if clown_rect.collidepoint(mouse_x, mouse_y):
+                    score += 1
+                    clown_velocity += clown_acceleration
+                    dx = random.choice([-1, 1]) * clown_velocity
+                    dy = random.choice([-1, 1]) * clown_velocity
+                    clown_rect.topleft = (random.randint(0, WINDOW_WIDTH - clown_rect.width),
+                                          random.randint(0, WINDOW_HEIGHT - clown_rect.height))
+                else:
+                    lives -= 1
 
-    # Move the clown
-    clown_rect.x += dx
-    clown_rect.y += dy
+        # Move the clown
+        clown_rect.x += dx
+        clown_rect.y += dy
 
-    # Bounce off walls
-    if clown_rect.left <= 0 or clown_rect.right >= WINDOW_WIDTH:
-        dx = -dx
-    if clown_rect.top <= 0 or clown_rect.bottom >= WINDOW_HEIGHT:
-        dy = -dy
+        # Bounce off walls
+        if clown_rect.left <= 0 or clown_rect.right >= WINDOW_WIDTH:
+            dx = -dx
+        if clown_rect.top <= 0 or clown_rect.bottom >= WINDOW_HEIGHT:
+            dy = -dy
 
-    # Check for game over
-    if lives <= 0:
-        game_over()
+        # Check for game over
+        if lives <= 0:
+            game_over()
 
-    # Draw the game elements
-    display_surface.blit(background_image, (0, 0))
-    display_surface.blit(clown_image, clown_rect)
+        # Draw the game elements
+        display_surface.blit(background_image, (0, 0))
+        display_surface.blit(clown_image, clown_rect)
 
-    # Display HUD
-    display_text(f"Score: {score}", font, YELLOW, 100, 30)
-    display_text(f"Lives: {lives}", font, YELLOW, WINDOW_WIDTH - 100, 30)
-    display_text("Catch the Clown", title_font, YELLOW, WINDOW_WIDTH // 2, 30)
+        # Display HUD
+        display_text(f"Score: {score}", font, YELLOW, 100, 30)
+        display_text(f"Lives: {lives}", font, YELLOW, WINDOW_WIDTH - 100, 30)
+        display_text("Catch the Clown", title_font, YELLOW, WINDOW_WIDTH // 2, 30)
 
-    # Update the display
-    pygame.display.update()
+        # Update the display
+        pygame.display.update()
 
-    # Control frame rate
-    clock.tick(FPS)
+        # Control frame rate
+        clock.tick(FPS)
 
-# End the game
-pygame.quit()
-
-#front end programming
-from flask import Flask, send_file, render_template
-import os
-
+# Flask setup for front end
 app = Flask(__name__)
+CORS(app)
 
 # Serve the game index page (which will embed the game into the Vue app)
 @app.route('/')
@@ -147,11 +148,13 @@ def game():
     # Here you could return a static file (e.g., an image representing the game state)
     return send_file('path/to/game_frame.png', mimetype='image/png')
 
-if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+# Run Flask in a separate thread
+def run_flask():
+    app.run(debug=True, host='0.0.0.0', port=5000, use_reloader=False)  # Disable reloader
 
-from flask_cors import CORS
+flask_thread = threading.Thread(target=run_flask)
+flask_thread.start()
 
-# Enable CORS for the Flask app
-app = Flask(__name__)
-CORS(app)
+# Start the Pygame game
+reset_game()  # Initialize the game state before starting
+run_game()
