@@ -1,37 +1,42 @@
 <template>
   <div>
-    <h1>Catch the Clown Game</h1>
-    <div>
-      <p>Score: {{ score }}</p>
-      <p>Lives: {{ lives }}</p>
-    </div>
-    <!-- You can add other elements to display game data -->
+    <canvas ref="gameCanvas" width="945" height="600"></canvas>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
-
 export default {
   data() {
     return {
-      score: 0,
-      lives: 5,
+      ws: null,
     }
   },
-  created() {
-    this.getGameStatus()
-    setInterval(this.getGameStatus, 1000) // Update every second
+  mounted() {
+    this.setupWebSocket()
   },
   methods: {
-    async getGameStatus() {
-      try {
-        const response = await axios.get('http://localhost:5000/game-status')
-        this.score = response.data.score
-        this.lives = response.data.lives
-      } catch (error) {
-        console.error('Error fetching game status:', error)
+    setupWebSocket() {
+      this.ws = new WebSocket('ws://localhost:8765')
+
+      this.ws.onmessage = (event) => {
+        const data = JSON.parse(event.data)
+        const base64Image = data.image
+        this.displayGameFrame(base64Image)
       }
+
+      this.ws.onerror = (error) => {
+        console.error('WebSocket Error: ', error)
+      }
+    },
+
+    displayGameFrame(base64Image) {
+      const canvas = this.$refs.gameCanvas
+      const ctx = canvas.getContext('2d')
+      const img = new Image()
+      img.onload = () => {
+        ctx.drawImage(img, 0, 0)
+      }
+      img.src = 'data:image/png;base64,' + base64Image
     },
   },
 }
