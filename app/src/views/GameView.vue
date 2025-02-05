@@ -1,7 +1,7 @@
 <template>
   <div class="game-container text-2xl">
-    <h1>Catch the Clown</h1>
-    <p>
+    <h1 class="text-black">Catch the Clown</h1>
+    <p class="text-black">
       Score: <span>{{ score }}</span> | Lives: <span>{{ lives }}</span>
     </p>
     <br />
