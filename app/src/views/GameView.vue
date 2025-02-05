@@ -74,7 +74,7 @@ export default {
       const rect = canvas.value.getBoundingClientRect()
       const mouseX = event.clientX - rect.left
       const mouseY = event.clientY - rect.top
-      const hitboxPadding = 25
+      const hitboxPadding = 30
 
       if (
         mouseX >= clown.value.x - hitboxPadding &&
