@@ -1,5 +1,5 @@
 <template>
-  <div class="game-container">
+  <div class="game-container text-2xl">
     <h1>Catch the Clown</h1>
     <p>
       Score: <span>{{ score }}</span> | Lives: <span>{{ lives }}</span>
@@ -144,14 +144,13 @@ export default {
 <style scoped>
 .game-container {
   text-align: center;
-  background-color: #333;
   color: white;
   padding: 20px;
 }
 canvas {
   display: block;
   margin: auto;
-  border: 2px solid white;
+  border: 2px solid red;
   cursor: pointer;
 }
 </style>
