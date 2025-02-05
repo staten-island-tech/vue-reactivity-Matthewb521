@@ -1,13 +1,6 @@
 <template>
-  <div></div>
-  <br />
-  <br />
-  <div class="flex">
-    <div class="w-[2%]"></div>
-    <div class="w-[96%]">
-      <TheFighters />
-    </div>
-    <div class="w-[2%]"></div>
+  <div class="mt-8 px-6">
+    <TheFighters />
   </div>
 </template>
 

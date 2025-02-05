@@ -1,11 +1,11 @@
 <template>
-  <div></div>
-  <br />
-  <br />
-  <div class="flex gap-3">
-    <div class="w-[2%]"></div>
-    <FavoriteFighters />
-    <StatsBox class="w-[20%] sticky top-[80px]" />
+  <div class="mt-8 flex gap-8 px-6">
+    <div class="flex-1">
+      <FavoriteFighters />
+    </div>
+    <div class="w-[20%] sticky top-20 max-h-[calc(100vh-5rem)] overflow-y-auto">
+      <StatsBox />
+    </div>
   </div>
 </template>
 

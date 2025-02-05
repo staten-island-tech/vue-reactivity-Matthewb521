@@ -1,13 +1,8 @@
 <template>
-  <div></div>
-  <br />
-  <br />
-  <div class="flex">
-    <div class="w-[2%]"></div>
-    <div class="w-[70%]">
+  <div class="mt-8 flex gap-8 px-6">
+    <div class="flex-1">
       <TheProducts />
     </div>
-    <div class="w-[10%]"></div>
     <div class="w-[20%] sticky top-20 max-h-[calc(100vh-5rem)] overflow-y-auto">
       <ShoppingCart />
     </div>
