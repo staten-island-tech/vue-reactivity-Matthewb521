@@ -13,6 +13,8 @@ import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import NavBar from '@/components/NavBar.vue'
 import WelcomeHeader from '@/components/TheHeader.vue'
+import gsap from "@/plugins/gsap.js";
+
 
 const route = useRoute()
 const currentTitle = computed(() => route.meta.title || 'Default Title')
