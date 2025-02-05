@@ -4,6 +4,7 @@
     <p>
       Score: <span>{{ score }}</span> | Lives: <span>{{ lives }}</span>
     </p>
+    <br />
     <canvas ref="canvas" width="945" height="600"></canvas>
   </div>
 </template>
