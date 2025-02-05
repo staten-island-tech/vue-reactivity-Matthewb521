@@ -1,11 +1,16 @@
 <template>
-  <div class="game-container text-2xl">
-    <h1 class="text-black">Catch the Clown</h1>
-    <p class="text-black">
-      Score: <span>{{ score }}</span> | Lives: <span>{{ lives }}</span>
+  <div class="game-container flex flex-col items-center justify-center gap-4 p-6 rounded-lg">
+    <h1 class="text-4xl font-bold text-black drop-shadow-md">Catch the Clown</h1>
+    <p class="text-2xl text-black">
+      Score: <span class="font-semibold">{{ score }}</span> | Lives:
+      <span class="font-semibold">{{ lives }}</span>
     </p>
-    <br />
-    <canvas ref="canvas" width="945" height="600"></canvas>
+    <canvas
+      ref="canvas"
+      width="945"
+      height="600"
+      class="border-4 border-gray-800 shadow-lg rounded-md"
+    ></canvas>
   </div>
 </template>
 
@@ -69,12 +74,13 @@ export default {
       const rect = canvas.value.getBoundingClientRect()
       const mouseX = event.clientX - rect.left
       const mouseY = event.clientY - rect.top
+      const hitboxPadding = 25
 
       if (
-        mouseX >= clown.value.x &&
-        mouseX <= clown.value.x + clown.value.width &&
-        mouseY >= clown.value.y &&
-        mouseY <= clown.value.y + clown.value.height
+        mouseX >= clown.value.x - hitboxPadding &&
+        mouseX <= clown.value.x + clown.value.width + hitboxPadding &&
+        mouseY >= clown.value.y - hitboxPadding &&
+        mouseY <= clown.value.y + clown.value.height + hitboxPadding
       ) {
         clickSound.play()
         score.value++
