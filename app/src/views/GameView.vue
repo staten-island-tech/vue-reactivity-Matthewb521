@@ -91,7 +91,7 @@ export default {
     }
 
     const gameOver = () => {
-      gameRunning = false // ✅ Stops the game loop
+      gameRunning = false // ✅ Stops the game loop a
       bgMusic.pause()
       ctx.fillStyle = 'rgba(0, 0, 0, 0.7)'
       ctx.fillRect(0, 0, 945, 600)
