@@ -61,7 +61,6 @@ const playTrack = (index) => {
   isPlaying.value[index] = !isPlaying.value[index]
 }
 
-// Close dropdown when clicking outside
 const handleClickOutside = (event) => {
   if (dropdownRef.value && !dropdownRef.value.contains(event.target)) {
     dropdownOpen.value = false
