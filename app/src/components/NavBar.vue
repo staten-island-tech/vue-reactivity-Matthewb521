@@ -7,6 +7,7 @@
         </div>
         <div class="flex space-x-4">
           <ModeButton class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" />
+          <TheMusic />
           <RouterLink to="/" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
             >Home</RouterLink
           >
@@ -34,6 +35,7 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import ModeButton from './ModeButton.vue'
+import TheMusic from './TheMusic.vue'
 </script>
 
 <style lang="scss" scoped></style>

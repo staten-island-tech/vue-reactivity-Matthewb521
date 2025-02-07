@@ -5,16 +5,6 @@
   <div>
     <WelcomeHeader>{{ currentTitle }}</WelcomeHeader>
   </div>
-  <div>
-    <iframe
-      id="youtube-player"
-      width="0"
-      height="0"
-      src="https://www.youtube.com/watch?v=TMy5gi5v784"
-      frameborder="0"
-      allow="autoplay"
-    ></iframe>
-  </div>
   <RouterView />
 </template>
 
