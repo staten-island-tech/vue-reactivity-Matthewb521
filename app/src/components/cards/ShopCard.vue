@@ -30,7 +30,7 @@
       </div>
     </div>
   </div>
-  <audio ref="soundEffect" src="/sounds/ding.mp3" preload="auto"></audio>
+  <audio ref="soundEffect" src="/sounds/add.mp3" preload="auto"></audio>
 </template>
 
 <script setup>
