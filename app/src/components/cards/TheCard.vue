@@ -29,14 +29,13 @@
             />
           </svg>
         </button>
-        <div @click="playSound">
-          <button
-            @click="openModal"
-            class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:focus:ring-yellow-900 hover:scale-110 transition-transform"
-          >
-            Read More
-          </button>
-        </div>
+
+        <button
+          @click="openModal"
+          class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:focus:ring-yellow-900 hover:scale-110 transition-transform"
+        >
+          Read More
+        </button>
       </div>
     </div>
   </div>
@@ -78,7 +77,6 @@
       </div>
     </div>
   </div>
-  <audio ref="soundEffect" src="/ding.mp3" preload="auto"></audio>
 </template>
 
 <script setup>
@@ -108,15 +106,6 @@ const openModal = () => {
 }
 const closeModal = () => {
   isModalOpen.value = false
-}
-
-const soundEffect = ref(null)
-
-const playSound = () => {
-  if (soundEffect.value) {
-    soundEffect.value.currentTime = 0
-    soundEffect.value.play()
-  }
 }
 </script>
 

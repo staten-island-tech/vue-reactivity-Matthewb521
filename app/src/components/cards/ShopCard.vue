@@ -17,7 +17,7 @@
           >Rating: {{ product.rating }}</span
         >
       </div>
-      <div class="flex items-center justify-between">
+      <div @click="playSound" class="flex items-center justify-between">
         <span class="text-3xl font-bold text-gray-900 dark:text-white">${{ product.price }}</span>
         <form name="cart-add" @submit.prevent="addCart(product)">
           <button
@@ -30,9 +30,11 @@
       </div>
     </div>
   </div>
+  <audio ref="soundEffect" src="/sounds/ding.mp3" preload="auto"></audio>
 </template>
 
 <script setup>
+import { ref } from 'vue'
 import { cart } from '@/arrays/cart.js'
 
 defineProps({
@@ -42,6 +44,15 @@ defineProps({
 function addCart(product) {
   console.log(product)
   cart.push({ ...product })
+}
+
+const soundEffect = ref(null)
+
+const playSound = () => {
+  if (soundEffect.value) {
+    soundEffect.value.currentTime = 0
+    soundEffect.value.play()
+  }
 }
 </script>
 

@@ -15,7 +15,7 @@
             >Rating: {{ item.rating }}</span
           >
         </div>
-        <div class="flex justify-between">
+        <div @click="playSound" class="flex justify-between">
           <button
             @click="removeOne(index)"
             class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
@@ -26,9 +26,11 @@
       </div>
     </div>
   </div>
+  <audio ref="soundEffect" src="/sounds/remove.mp3" preload="auto"></audio>
 </template>
 
 <script setup>
+import { ref } from 'vue'
 import { cart } from '@/arrays/cart.js'
 
 defineProps({
@@ -37,6 +39,15 @@ defineProps({
 
 function removeOne(index) {
   cart.splice(index, 1)
+}
+
+const soundEffect = ref(null)
+
+const playSound = () => {
+  if (soundEffect.value) {
+    soundEffect.value.currentTime = 0
+    soundEffect.value.play()
+  }
 }
 </script>
 

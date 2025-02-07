@@ -30,7 +30,11 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 
-const tracks = ref(['/background-1.mp3', '/background-2.mp3', '/background-3.mp3'])
+const tracks = ref([
+  '/sounds/background-1.mp3',
+  '/sounds/background-2.mp3',
+  '/sounds/background-3.mp3',
+])
 const dropdownOpen = ref(false)
 const audioElements = ref([])
 const isPlaying = ref(new Array(tracks.value.length).fill(false))
