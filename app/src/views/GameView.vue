@@ -1,6 +1,7 @@
 <template>
   <div class="game-container flex flex-col items-center justify-center gap-4 p-6 rounded-lg">
-    <h1 class="text-4xl font-bold text-black drop-shadow-md">Catch the Clown</h1>
+    <h1 class="text-5xl font-bold text-black drop-shadow-md">Catch the Clown</h1>
+    <h2 class="text-xl font-bold text-black drop-shadow-md">Game Credit To:Mariami</h2>
     <p class="text-2xl text-black">
       Score: <span class="font-semibold">{{ score }}</span> | Lives:
       <span class="font-semibold">{{ lives }}</span>
