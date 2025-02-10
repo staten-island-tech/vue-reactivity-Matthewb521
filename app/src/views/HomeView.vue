@@ -8,4 +8,4 @@
 import TheFighters from '@/components/displays/TheFighters.vue'
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped></style>

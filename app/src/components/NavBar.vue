@@ -38,4 +38,4 @@ import ModeButton from './ModeButton.vue'
 import TheMusic from './TheMusic.vue'
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped></style>

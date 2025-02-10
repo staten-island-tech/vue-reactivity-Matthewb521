@@ -14,4 +14,4 @@ import FavoriteFighters from '@/components/displays/FavoriteFighters.vue'
 import StatsBox from '@/components/StatsBox.vue'
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped></style>

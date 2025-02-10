@@ -39,7 +39,6 @@
     @click.self="closeModal"
   >
     <div class="relative w-full max-w-md max-h-full bg-white rounded-lg shadow-sm dark:bg-gray-700">
-      <!-- Modal Header -->
       <div
         class="flex items-center justify-between p-4 border-b rounded-t dark:border-gray-600 border-gray-200"
       >
@@ -63,14 +62,12 @@
         </button>
       </div>
 
-      <!-- Modal Body -->
       <div class="p-4 space-y-4">
         <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
           {{ fighter.description }}
         </p>
       </div>
 
-      <!-- Modal Footer -->
       <div class="flex items-center p-4 border-t border-gray-200 rounded-b dark:border-gray-600">
         <button
           @click="closeModal"
@@ -109,4 +106,4 @@ const closeModal = () => {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped></style>

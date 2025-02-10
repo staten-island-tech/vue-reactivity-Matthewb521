@@ -14,4 +14,4 @@ import TheProducts from '@/components/displays/TheProducts.vue'
 import ShoppingCart from '@/components/ShoppingCart.vue'
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped></style>

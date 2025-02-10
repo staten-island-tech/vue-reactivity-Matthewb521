@@ -9,4 +9,4 @@ import ShopCard from '../cards/ShopCard.vue'
 import { products } from '@/arrays/products.js'
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped></style>

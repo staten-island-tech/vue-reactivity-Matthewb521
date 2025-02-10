@@ -19,4 +19,4 @@ const route = useRoute()
 const currentTitle = computed(() => route.meta.title || 'Default Title')
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped></style>

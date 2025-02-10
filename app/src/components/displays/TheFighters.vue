@@ -9,4 +9,4 @@ import TheCard from '@/components/cards/TheCard.vue'
 import { fighters } from '@/arrays/fighters.js'
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped></style>
