@@ -42,7 +42,8 @@
 
   <div
     v-if="isModalOpen"
-    class="fixed top-0 left-0 right-0 z-50 flex items-center justify-center w-full h-screen"
+    ref="modal"
+    class="fixed top-0 left-0 right-0 z-50 flex items-center justify-center w-full h-screen modal"
     @click.self="closeModal"
   >
     <div class="relative w-full max-w-md max-h-full bg-white rounded-lg shadow-sm dark:bg-gray-700">
@@ -80,8 +81,11 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, nextTick } from 'vue'
 import { favFighters } from '@/arrays/favFighters.js'
+import { Draggable } from 'gsap/Draggable'
+import { gsap } from '@/plugins/gsap'
+gsap.registerPlugin(Draggable, InertiaPlugin)
 
 const props = defineProps({
   fighter: Object,
@@ -99,11 +103,24 @@ const toggleFavorite = () => {
   }
 }
 
+const modal = ref(null)
+
 const isModalOpen = ref(false)
 
-const openModal = () => {
+const openModal = async () => {
   isModalOpen.value = true
+  await nextTick()
+
+  if (modal.value) {
+    Draggable.create(modal.value, {
+      bounds: 'body',
+      inertia: true,
+      edgeResistance: 0.75,
+      type: 'x,y',
+    })
+  }
 }
+
 const closeModal = () => {
   isModalOpen.value = false
 }

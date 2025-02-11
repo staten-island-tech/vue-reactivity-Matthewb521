@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-8 px-6">
+  <div class="mt-8 px-6 container">
     <TheFighters />
   </div>
 </template>
