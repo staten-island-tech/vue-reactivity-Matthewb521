@@ -35,43 +35,38 @@
 
   <div
     v-if="isModalOpen"
-    class="fixed top-0 left-0 right-0 z-50 flex items-center justify-center w-full h-screen"
+    ref="modal"
+    class="fixed top-0 left-0 right-0 z-50 flex items-center justify-center w-full h-screen modal"
     @click.self="closeModal"
   >
-    <div class="relative w-full max-w-md max-h-full bg-white rounded-lg shadow-sm dark:bg-gray-700">
+    <div
+      class="modal-header relative w-full max-w-md max-h-full bg-white rounded-lg shadow-sm dark:bg-gray-700"
+    >
       <div
-        class="flex items-center justify-between p-4 border-b rounded-t dark:border-gray-600 border-gray-200"
+        class="flex items-center justify-between p-4 border-b dark:border-gray-600 border-gray-200"
       >
-        <h3 class="text-xl font-medium text-gray-900 dark:text-white">
-          {{ fighter.name }}
-        </h3>
+        <h3 class="text-xl font-medium text-gray-900 dark:text-white">{{ fighter.name }}</h3>
         <button
           @click="closeModal"
-          class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+          class="text-gray-400 hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 dark:hover:bg-gray-600 dark:hover:text-white"
         >
-          <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+          <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14">
             <path
               stroke="currentColor"
               stroke-linecap="round"
-              stroke-linejoin="round"
               stroke-width="2"
               d="M1 1l6 6m0 0l6 6M7 7l6-6M7 7l-6 6"
             />
           </svg>
-          <span class="sr-only">Close modal</span>
         </button>
       </div>
-
-      <div class="p-4 space-y-4">
-        <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-          {{ fighter.description }}
-        </p>
+      <div class="modal-footer p-4 space-y-4">
+        <p class="text-base text-gray-500 dark:text-gray-400">{{ fighter.description }}</p>
       </div>
-
-      <div class="flex items-center p-4 border-t border-gray-200 rounded-b dark:border-gray-600">
+      <div class="flex items-center p-4 border-t dark:border-gray-600">
         <button
           @click="closeModal"
-          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700"
         >
           Close
         </button>
@@ -82,7 +77,11 @@
 
 <script setup>
 import { favFighters } from '@/arrays/favFighters.js'
-import { ref } from 'vue'
+import { ref, nextTick } from 'vue'
+import { Draggable } from 'gsap/Draggable'
+import gsap from '@/plugins/gsap'
+
+gsap.registerPlugin(Draggable)
 
 defineProps({
   fighter: Object,
@@ -95,10 +94,25 @@ function submit(fighter) {
   }
 }
 
+const modal = ref(null)
+
 const isModalOpen = ref(false)
 
-const openModal = () => {
+const openModal = async () => {
   isModalOpen.value = true
+  await nextTick()
+
+  if (modal.value) {
+    Draggable.get(modal.value)?.kill()
+    Draggable.create(modal.value, {
+      inertia: true,
+      edgeResistance: 1,
+      type: 'x,y',
+      cursor: 'grab',
+      handle: '.modal-header, .modal-footer',
+      allowEventDefault: true,
+    })
+  }
 }
 
 const closeModal = () => {

@@ -46,7 +46,9 @@
     class="fixed top-0 left-0 right-0 z-50 flex items-center justify-center w-full h-screen modal"
     @click.self="closeModal"
   >
-    <div class="relative w-full max-w-md max-h-full bg-white rounded-lg shadow-sm dark:bg-gray-700">
+    <div
+      class="modal-header relative w-full max-w-md max-h-full bg-white rounded-lg shadow-sm dark:bg-gray-700"
+    >
       <div
         class="flex items-center justify-between p-4 border-b dark:border-gray-600 border-gray-200"
       >
@@ -65,7 +67,7 @@
           </svg>
         </button>
       </div>
-      <div class="p-4 space-y-4">
+      <div class="modal-footer p-4 space-y-4">
         <p class="text-base text-gray-500 dark:text-gray-400">{{ fighter.description }}</p>
       </div>
       <div class="flex items-center p-4 border-t dark:border-gray-600">
@@ -84,8 +86,9 @@
 import { ref, computed, nextTick } from 'vue'
 import { favFighters } from '@/arrays/favFighters.js'
 import { Draggable } from 'gsap/Draggable'
-import { gsap } from '@/plugins/gsap'
-gsap.registerPlugin(Draggable, InertiaPlugin)
+import gsap from '@/plugins/gsap'
+
+gsap.registerPlugin(Draggable)
 
 const props = defineProps({
   fighter: Object,
@@ -112,11 +115,14 @@ const openModal = async () => {
   await nextTick()
 
   if (modal.value) {
+    Draggable.get(modal.value)?.kill()
     Draggable.create(modal.value, {
-      bounds: 'body',
       inertia: true,
-      edgeResistance: 0.75,
+      edgeResistance: 1,
       type: 'x,y',
+      cursor: 'grab',
+      handle: '.modal-header, .modal-footer',
+      allowEventDefault: true,
     })
   }
 }
