@@ -118,7 +118,6 @@ const openModal = async () => {
     Draggable.get(modal.value)?.kill()
     Draggable.create(modal.value, {
       inertia: true,
-      edgeResistance: 1,
       type: 'x,y',
       cursor: 'grab',
       handle: '.modal-header, .modal-footer',
