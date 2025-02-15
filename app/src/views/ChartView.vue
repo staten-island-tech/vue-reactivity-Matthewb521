@@ -1,11 +1,11 @@
 <template>
   <div>
-    <TheChart />
+    <ChartSelector />
   </div>
 </template>
 
 <script setup>
-import TheChart from '@/components/TheChart.vue'
+import ChartSelector from '@/components/charts/ChartSelector.vue'
 </script>
 
 <style scoped></style>

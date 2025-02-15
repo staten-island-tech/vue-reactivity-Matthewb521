@@ -56,7 +56,7 @@ onMounted(() => {
               color: '#000000',
               font: {
                 size: 16,
-                faimly: 'Protest Guerrilla',
+                family: 'Protest Guerrilla',
               },
             },
           },
@@ -66,7 +66,7 @@ onMounted(() => {
             color: '#000000',
             font: {
               size: 20,
-              faimly: 'Protest Guerrilla',
+              family: 'Protest Guerrilla',
             },
           },
         },
