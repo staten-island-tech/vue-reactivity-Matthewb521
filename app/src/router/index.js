@@ -34,6 +34,12 @@ const router = createRouter({
       component: () => import('../views/GameView.vue'),
       meta: { title: 'welcome to the ufc game' },
     },
+    {
+      path: '/chart',
+      name: 'Charts',
+      component: () => import('../views/ChartView.vue'),
+      meta: { title: 'UFC Charts' },
+    },
   ],
 })
 

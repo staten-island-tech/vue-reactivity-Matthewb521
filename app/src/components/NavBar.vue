@@ -26,6 +26,11 @@
             class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
             >Game</RouterLink
           >
+          <RouterLink
+            to="/chart"
+            class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
+            >Charts</RouterLink
+          >
         </div>
       </div>
     </div>

@@ -1,26 +1,86 @@
 <template>
-  <div></div>
+  <div class="flex justify-center items-center">
+    <div class="w-225 h-225">
+      <canvas ref="chartCanvas"></canvas>
+    </div>
+  </div>
 </template>
 
 <script setup>
+import { ref, onMounted } from 'vue'
+import Chart from 'chart.js/auto'
 import { fighters } from '@/arrays/fighters'
 
-const config = {
-  type: 'doughnut',
-  data: data,
+const chartCanvas = ref(null)
+
+const processFighterData = () => {
+  const divisionCounts = {}
+  fighters.forEach((fighter) => {
+    divisionCounts[fighter.division] = (divisionCounts[fighter.division] || 0) + 1
+  })
+  return {
+    labels: Object.keys(divisionCounts),
+    data: Object.values(divisionCounts),
+  }
 }
 
-const data = {
-  labels: ['Red', 'Blue', 'Yellow'],
-  datasets: [
-    {
-      label: 'My First Dataset',
-      data: [300, 50, 100],
-      backgroundColor: ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)'],
-      hoverOffset: 4,
-    },
-  ],
-}
+onMounted(() => {
+  if (chartCanvas.value) {
+    const { labels, data } = processFighterData()
+
+    new Chart(chartCanvas.value, {
+      type: 'doughnut',
+      data: {
+        labels,
+        datasets: [
+          {
+            label: 'Fighters per Division',
+            data,
+            backgroundColor: [
+              '#FF6384',
+              '#36A2EB',
+              '#FFCE56',
+              '#4BC0C0',
+              '#9966FF',
+              '#FF9F40',
+              '#C9CBCF',
+            ],
+            hoverOffset: 4,
+          },
+        ],
+      },
+      options: {
+        plugins: {
+          legend: {
+            labels: {
+              color: '#000000',
+              font: {
+                size: 16,
+                faimly: 'Protest Guerrilla',
+              },
+            },
+          },
+          title: {
+            display: true,
+            text: 'Fighters Per Division',
+            color: '#000000',
+            font: {
+              size: 20,
+              faimly: 'Protest Guerrilla',
+            },
+          },
+        },
+      },
+    })
+  }
+})
 </script>
 
-<style scoped></style>
+<style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Protest+Guerrilla&display=swap');
+
+@font-face {
+  font-family: 'Protest Guerrilla';
+  src: url('./path-to-font/ProtestGuerrilla-Regular.ttf') format('truetype');
+}
+</style>
