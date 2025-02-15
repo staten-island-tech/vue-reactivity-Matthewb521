@@ -21,7 +21,7 @@
 import { ref } from 'vue'
 import DoughnutChart from '@/components/charts/DoughnutChart.vue'
 import BarChart from '@/components/charts/BarChart.vue'
-import ScatterChart from './ScatterChart.vue'
+import ScatterChart from '@/components/charts/ScatterChart.vue'
 
 const selectedComponent = ref('chart')
 </script>
