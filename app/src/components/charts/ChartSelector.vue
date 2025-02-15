@@ -7,12 +7,14 @@
       <option value="chart">Show Doughnut Chart</option>
       <option value="BarChart">Show Bar Chart</option>
       <option value="ScatterChart">Show Scatter Chart</option>
+      <option value="PolarChart">Show Polar Chart</option>
     </select>
 
     <div class="flex justify-center items-center">
       <DoughnutChart v-if="selectedComponent === 'chart'" />
       <BarChart v-if="selectedComponent === 'BarChart'" />
       <ScatterChart v-if="selectedComponent === 'ScatterChart'" />
+      <PolarChart v-if="selectedComponent === 'PolarChart'" />
     </div>
   </div>
 </template>
@@ -22,6 +24,7 @@ import { ref } from 'vue'
 import DoughnutChart from '@/components/charts/DoughnutChart.vue'
 import BarChart from '@/components/charts/BarChart.vue'
 import ScatterChart from '@/components/charts/ScatterChart.vue'
+import PolarChart from './PolarChart.vue'
 
 const selectedComponent = ref('chart')
 </script>
