@@ -3,6 +3,7 @@
 @media (max-width: 640px) {
   .flex {
     flex-direction: column;
+    align-items: center;
   }
 
   .w-[70%],
@@ -12,8 +13,7 @@
   }
 
   .sticky {
-    position: relative;
-    top: auto;
+    position: static;
   }
 
   .cart {
@@ -22,12 +22,19 @@
 }
 
 @media (max-width: 1024px) {
+  .flex {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
   .w-[70%] {
-    width: 65%;
+    width: 100%;
+    max-width: 65%;
   }
 
   .w-[20%] {
-    width: 30%;
+    width: 100%;
+    max-width: 30%;
   }
 
   .w-[10%] {
@@ -36,6 +43,10 @@
 }
 
 @media (min-width: 1025px) {
+  .flex {
+    flex-wrap: nowrap;
+  }
+
   .w-[70%] {
     width: 70%;
   }
@@ -46,6 +57,7 @@
 
   .w-[10%] {
     width: 10%;
+    display: block;
   }
 }
 
