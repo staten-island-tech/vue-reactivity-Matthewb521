@@ -85,11 +85,4 @@ onMounted(() => {
 })
 </script>
 
-<style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Protest+Guerrilla&display=swap');
-
-@font-face {
-  font-family: 'Protest Guerrilla';
-  src: url('./path-to-font/ProtestGuerrilla-Regular.ttf') format('truetype');
-}
-</style>
+<style scoped></style>
